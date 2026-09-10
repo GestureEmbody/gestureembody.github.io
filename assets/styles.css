@@ -24,6 +24,7 @@ img, video { display: block; width: 100%; height: auto; }
 .container { width: min(1320px, calc(100% - 80px)); margin-inline: auto; }
 .skip-link { position: fixed; z-index: 5; top: -100px; left: 16px; padding: 10px 16px; border: 1px solid var(--accent); border-radius: 6px; background: white; }
 .skip-link:focus { top: 12px; }
+main.container { padding-bottom: 36px; }
 .paper-header { padding: 40px 0 34px; text-align: center; }
 h1 { font-weight: 650; letter-spacing: -.035em; line-height: 1.22; }
 .project-name { display: block; color: var(--accent); font-size: clamp(30px, 3.5vw, 45px); }
@@ -45,10 +46,6 @@ h1 { font-weight: 650; letter-spacing: -.035em; line-height: 1.22; }
 .player-shell { background: white; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 10px 36px -23px #263c6b40; }
 .player-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 18px; min-height: 63px; }
 .player-toolbar h2 { font-size: 18px; font-weight: 600; letter-spacing: -.02em; line-height: 1.3; }
-.segmented { display: flex; padding: 3px; border: 1px solid #e5e8ef; border-radius: 8px; background: #f2f4f8; flex-shrink: 0; }
-.segmented button { padding: 6px 14px; border: 0; border-radius: 5px; background: transparent; font-size: 12px; line-height: 1.5; color: var(--muted); }
-.segmented button[aria-pressed="true"] { background: #253b69; color: white; box-shadow: 0 2px 4px #14244618; }
-.segmented button:hover:not([aria-pressed="true"]) { color: var(--ink); background: #e8ecf3; }
 .video-stage { position: relative; aspect-ratio: 16/9; background: #eef2f6; }
 video { aspect-ratio: 16/9; object-fit: contain; background: #eef2f6; }
 .poster-play { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; background: #eef2f6; }
@@ -66,9 +63,6 @@ video { aspect-ratio: 16/9; object-fit: contain; background: #eef2f6; }
 .copy-status { padding: 0 17px 12px; color: var(--accent); font-size: 12px; overflow-wrap: anywhere; }
 .copy-status:empty { display: none; }
 .player-error { padding: 12px 17px; background: #fff0ec; color: #903b25; font-size: 12px; }
-.abstract-section { max-width: 1010px; margin: 46px auto 48px; padding-top: 30px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 30px; }
-.abstract-section h2 { font-size: 21px; line-height: 1.6; font-weight: 600; letter-spacing: -.02em; }
-.abstract-section p { font-size: 14px; line-height: 1.95; color: #4d586d; text-align: left; }
 .noscript { margin-top: 24px; padding: 24px; background: white; border: 1px solid var(--line); border-radius: 10px; }
 .noscript ul { columns: 2; padding-left: 20px; font-size: 13px; line-height: 2; }
 .noscript a { text-decoration: underline; }
@@ -77,7 +71,6 @@ video { aspect-ratio: 16/9; object-fit: contain; background: #eef2f6; }
   .explorer-layout { grid-template-columns: 132px minmax(0, 1fr); gap: 16px; }
   .task-list button { padding: 9px 11px; font-size: 12px; }
   .paper-header { padding-top: 32px; padding-bottom: 25px; }
-  .abstract-section { grid-template-columns: 105px minmax(0, 1fr); gap: 22px; margin-top: 34px; }
 }
 @media (max-width: 760px) {
   .container { width: calc(100% - 32px); }
@@ -94,12 +87,8 @@ video { aspect-ratio: 16/9; object-fit: contain; background: #eef2f6; }
   .task-list button[aria-pressed="true"]::before { display: none; }
   .player-toolbar { padding: 11px 13px; min-height: 55px; gap: 10px; }
   .player-toolbar h2 { font-size: 16px; }
-  .segmented button { font-size: 11px; padding: 5px 10px; }
   .player-actions { padding: 10px 12px; }
   .file-actions { gap: 16px; }
-  .abstract-section { display: block; margin: 30px auto 32px; padding-top: 25px; }
-  .abstract-section h2 { font-size: 20px; margin-bottom: 11px; }
-  .abstract-section p { font-size: 13px; line-height: 1.85; }
 }
 @media (max-width: 420px) {
   .container { width: calc(100% - 24px); }
@@ -109,7 +98,6 @@ video { aspect-ratio: 16/9; object-fit: contain; background: #eef2f6; }
   .paper-subtitle { font-size: 22px; }
   .poster-play > span { width: 48px; height: 48px; font-size: 16px; }
   .player-toolbar { padding-inline: 10px; }
-  .segmented button { padding-inline: 8px; font-size: 10px; }
   .player-toolbar h2 { font-size: 15px; }
   .text-link { font-size: 10px; }
   .file-actions { gap: 12px; }

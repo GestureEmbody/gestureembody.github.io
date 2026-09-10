@@ -1,6 +1,6 @@
 # Gesture2Embodiment: Gesture-Driven Motion Across Robot Morphologies
 
-This self-contained presentation contains 17 tasks and 34 paired videos: 12 whole-body tasks, three stationary manipulation tasks and two mobile manipulation tasks. All video files are preserved from the selected English v3 collection.
+The page presents 17 simulation videos: 12 whole-body tasks, three stationary manipulation tasks and two mobile manipulation tasks. Only the dynamics variant of each English v3 task is exposed by the gallery. The paired kinematic files are retained as archival assets, not offered by the page, its data manifest, or its no-JavaScript fallback. Legacy paired-view links resolve to the corresponding simulation clip.
 
 Locomotion task order: Jump, Turn left, Turn right, Squat, Bow, Rise, Left punch, Right punch, Left kick, Right kick, Walk, Run.
 
@@ -10,7 +10,7 @@ Extract the complete ZIP into a folder, then open `index.html`. Keep `assets`, `
 
 ## Reading the demonstrations
 
-The kinematic view is a reference visualization, not evidence of physical feasibility. Dynamics clips use robot-specific simulation controllers; the pairs are not a controlled algorithm comparison. Stationary manipulation fixes the bases. G1/Yuna kinematic manipulation views replay phase-aligned capture states. Mobile manipulation includes bounded virtual base stabilization and is not unassisted balance or a learned SONIC/PPO carrying policy. The mobile skeleton is derived from G1 state, not measured human motion. Recorded-input clips with offline alignment do not establish live teleoperation, hardware performance, recognition accuracy or generalization.
+The archived kinematic files are reference visualizations, not evidence of physical feasibility. The displayed clips use robot-specific simulation controllers; the collection is not a controlled algorithm comparison. Stationary manipulation fixes the bases. G1/Yuna kinematic manipulation views replay phase-aligned capture states. Mobile manipulation includes bounded virtual base stabilization and is not unassisted balance or a learned SONIC/PPO carrying policy. The mobile skeleton is derived from G1 state, not measured human motion. Recorded-input clips with offline alignment do not establish live teleoperation, hardware performance, recognition accuracy or generalization.
 
 ## Review privacy
 

@@ -7,40 +7,27 @@
   const $$ = selector => [...document.querySelectorAll(selector)];
   const video = $("#demo-video");
   const firstTask = data.tasks.find(task => task.category === "locomotion");
-  const state = {category: firstTask.category, task: firstTask.id, mode: "dynamics"};
-  const loadState = new WeakMap();
-  const safePlay = element => element.play().catch(error => {
+  const state = {category: firstTask.category, task: firstTask.id};
+  const safePlay = () => video.play().catch(error => {
     if (error.name !== "AbortError" && error.name !== "NotAllowedError") {
       $("#demo-error").hidden = false;
     }
   });
 
-  // Only load the selected MP4. Preserve the timeline when switching paired views.
-  function setVideo(element, task, mode, preserveTime = false, play = false) {
-    const previous = loadState.get(element);
-    const resumeAt = preserveTime ? (previous?.pending ? previous.time : element.currentTime || 0) : 0;
-    const variant = task.variants[mode];
-    const requested = {time: resumeAt, pending: true, play};
-    loadState.set(element, requested);
-    element.pause();
-    element.poster = variant.displayPoster || variant.poster;
+  // Only the selected simulation clip is exposed. Keep archived pairs intact.
+  function setVideo(task) {
+    const variant = task.variants.dynamics;
+    video.pause();
+    video.poster = variant.displayPoster || variant.poster;
     const overlay = $("#demo-play");
-    overlay.querySelector("img").src = element.poster;
-    overlay.hidden = preserveTime || play;
-    element.setAttribute("aria-label", `${task.title}, ${mode === "reference" ? "kinematic" : "dynamics"} demonstration`);
+    overlay.querySelector("img").src = video.poster;
+    overlay.hidden = false;
+    video.setAttribute("aria-label", `${task.title} demonstration`);
     $("#demo-error").hidden = true;
-    element.onloadedmetadata = () => {
-      if (loadState.get(element) !== requested) return;
-      requested.pending = false;
-      if (requested.time > 0) element.currentTime = Math.min(requested.time, Math.max(0, element.duration - 0.1));
-      if (requested.play) safePlay(element);
-    };
-    element.preload = preserveTime || play ? "metadata" : "none";
-    element.src = variant.file;
-    // Explicit load() overrides preload=none in some browsers. Updating src is
-    // enough when showing a poster; request metadata only after interaction.
-    if (preserveTime || play) element.load();
-    if (play) safePlay(element);
+    video.preload = "none";
+    video.src = variant.file;
+    video.querySelector("a").href = variant.file;
+    // Setting src without load() preserves lazy loading until the user plays.
   }
 
   function currentTasks() { return data.tasks.filter(task => task.category === state.category); }
@@ -52,33 +39,31 @@
       button.type = "button";
       button.dataset.task = task.id;
       button.setAttribute("aria-pressed", String(task.id === state.task));
-      const title = document.createElement("span");
-      title.textContent = task.title;
-      button.append(title);
+      button.textContent = task.title;
       button.addEventListener("click", () => selectTask(task.id));
       list.append(button);
     }
     list.setAttribute("aria-label", `${groups[state.category].title} tasks`);
   }
 
-  function saveUrl() {
+  function taskUrl() {
     const url = new URL(location.href);
     url.searchParams.set("task", state.task);
-    url.searchParams.set("view", state.mode);
-    // file:// implementations can reject history updates; playback must still work.
-    try { history.replaceState(null, "", url); } catch (_) { /* local-file fallback */ }
+    // Old paired-view links still resolve to their task, using the sole view.
+    url.searchParams.delete("view");
+    return url;
   }
 
-  function renderDemo({preserveTime = false, play = false, updateUrl = true} = {}) {
+  function renderDemo() {
     const task = byId.get(state.task);
     $$("[data-category]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.category === state.category)));
-    $$("[data-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.mode === state.mode)));
     $$("[data-task]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.task === state.task)));
     $("#active-task-title").textContent = task.title;
-    $("#download-video").href = task.variants[state.mode].file;
+    $("#download-video").href = task.variants.dynamics.file;
     $("#copy-status").textContent = "";
-    setVideo(video, task, state.mode, preserveTime, play);
-    if (updateUrl) saveUrl();
+    setVideo(task);
+    // Some file:// browsers reject history updates; playback must still work.
+    try { history.replaceState(null, "", taskUrl()); } catch (_) { /* local-file fallback */ }
   }
 
   function selectTask(id) {
@@ -97,12 +82,7 @@
   }
 
   $$("[data-category]").forEach(button => button.addEventListener("click", () => selectCategory(button.dataset.category)));
-  $$("[data-mode]").forEach(button => button.addEventListener("click", () => {
-    if (button.dataset.mode === state.mode) return;
-    state.mode = button.dataset.mode;
-    renderDemo({preserveTime: true, play: !video.paused});
-  }));
-  $("#demo-play").addEventListener("click", () => safePlay(video));
+  $("#demo-play").addEventListener("click", safePlay);
   for (const [selector, offset] of [["#previous-task", -1], ["#next-task", 1]]) {
     $(selector).addEventListener("click", () => {
       const tasks = currentTasks();
@@ -111,9 +91,7 @@
     });
   }
   $("#copy-link").addEventListener("click", async () => {
-    const url = new URL(location.href);
-    url.searchParams.set("task", state.task);
-    url.searchParams.set("view", state.mode);
+    const url = taskUrl();
     url.hash = "demonstrations";
     if (url.protocol === "file:") {
       $("#copy-status").textContent = "Local preview. Task links can be shared after the site is published.";
@@ -130,12 +108,11 @@
   video.addEventListener("error", () => { $("#demo-error").hidden = false; });
   function restoreUrl() {
     const params = new URLSearchParams(location.search);
-    const task = byId.get(params.get("task"));
-    if (task) { state.task = task.id; state.category = task.category; }
-    const mode = params.get("view");
-    if (mode === "reference" || mode === "dynamics") state.mode = mode;
+    const task = byId.get(params.get("task")) || firstTask;
+    state.task = task.id;
+    state.category = task.category;
     renderTasks();
-    renderDemo({updateUrl: false});
+    renderDemo();
   }
   addEventListener("popstate", restoreUrl);
   restoreUrl();
