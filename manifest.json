@@ -36,72 +36,6 @@
   },
   "tasks": [
     {
-      "id": "10_walk",
-      "category": "locomotion",
-      "title": "Walk",
-      "description": "Forward walking across five robot embodiments.",
-      "variants": {
-        "reference": {
-          "file": "videos/locomotion/10_walk_reference.mp4",
-          "poster": "posters/10_walk_reference.jpg",
-          "duration": 31.8,
-          "fps": 30.0,
-          "frames": 954,
-          "dimensions": [
-            1920,
-            1080
-          ],
-          "sha256": "d14e993fe82db6e540dc3448de6ff61b70a027b5d600fda6dca62a9d82deb9af",
-          "displayPoster": "stills/10_walk_reference.jpg"
-        },
-        "dynamics": {
-          "file": "videos/locomotion/10_walk_dynamics.mp4",
-          "poster": "posters/10_walk_dynamics.jpg",
-          "duration": 31.8,
-          "fps": 30.0,
-          "frames": 954,
-          "dimensions": [
-            1920,
-            1080
-          ],
-          "sha256": "b46350818aae0850eda73ec64f02418377f345c3a67238c5edc23034742a46d9",
-          "displayPoster": "stills/10_walk_dynamics.jpg"
-        }
-      }
-    },
-    {
-      "id": "09_run",
-      "category": "locomotion",
-      "title": "Run",
-      "description": "Faster forward motion across five robot embodiments.",
-      "variants": {
-        "reference": {
-          "file": "videos/locomotion/09_run_reference.mp4",
-          "poster": "posters/09_run_reference.jpg",
-          "duration": 30.966666666666665,
-          "fps": 30.0,
-          "frames": 929,
-          "dimensions": [
-            1920,
-            1080
-          ],
-          "sha256": "2a656d839b26a0f70c5aec979cb4852ab8f4c3f8a1800ef4afe8964436917fde"
-        },
-        "dynamics": {
-          "file": "videos/locomotion/09_run_dynamics.mp4",
-          "poster": "posters/09_run_dynamics.jpg",
-          "duration": 30.966666666666665,
-          "fps": 30.0,
-          "frames": 929,
-          "dimensions": [
-            1920,
-            1080
-          ],
-          "sha256": "5e1e30202290883d37d93b001b5f3c295833743bca37292853c14f5f3121c1ea"
-        }
-      }
-    },
-    {
       "id": "03_jump",
       "category": "locomotion",
       "title": "Jump",
@@ -111,7 +45,7 @@
           "file": "videos/locomotion/03_jump_reference.mp4",
           "poster": "posters/03_jump_reference.jpg",
           "duration": 14.033333333333333,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 421,
           "dimensions": [
             1920,
@@ -124,7 +58,7 @@
           "file": "videos/locomotion/03_jump_dynamics.mp4",
           "poster": "posters/03_jump_dynamics.jpg",
           "duration": 14.033333333333333,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 421,
           "dimensions": [
             1920,
@@ -145,7 +79,7 @@
           "file": "videos/locomotion/12_turn_reference.mp4",
           "poster": "posters/12_turn_reference.jpg",
           "duration": 16.3,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 489,
           "dimensions": [
             1920,
@@ -157,7 +91,7 @@
           "file": "videos/locomotion/12_turn_dynamics.mp4",
           "poster": "posters/12_turn_dynamics.jpg",
           "duration": 16.3,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 489,
           "dimensions": [
             1920,
@@ -177,7 +111,7 @@
           "file": "videos/locomotion/13_turn_reference.mp4",
           "poster": "posters/13_turn_reference.jpg",
           "duration": 15.466666666666667,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 464,
           "dimensions": [
             1920,
@@ -189,7 +123,7 @@
           "file": "videos/locomotion/13_turn_dynamics.mp4",
           "poster": "posters/13_turn_dynamics.jpg",
           "duration": 15.466666666666667,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 464,
           "dimensions": [
             1920,
@@ -209,7 +143,7 @@
           "file": "videos/locomotion/05_squat_reference.mp4",
           "poster": "posters/05_squat_reference.jpg",
           "duration": 14.133333333333333,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 424,
           "dimensions": [
             1920,
@@ -221,7 +155,7 @@
           "file": "videos/locomotion/05_squat_dynamics.mp4",
           "poster": "posters/05_squat_dynamics.jpg",
           "duration": 14.133333333333333,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 424,
           "dimensions": [
             1920,
@@ -241,7 +175,7 @@
           "file": "videos/locomotion/02_bend_reference.mp4",
           "poster": "posters/02_bend_reference.jpg",
           "duration": 12.433333333333334,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 373,
           "dimensions": [
             1920,
@@ -253,7 +187,7 @@
           "file": "videos/locomotion/02_bend_dynamics.mp4",
           "poster": "posters/02_bend_dynamics.jpg",
           "duration": 12.433333333333334,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 373,
           "dimensions": [
             1920,
@@ -273,7 +207,7 @@
           "file": "videos/locomotion/01_bend_fast_reference.mp4",
           "poster": "posters/01_bend_fast_reference.jpg",
           "duration": 5.2,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 156,
           "dimensions": [
             1920,
@@ -285,7 +219,7 @@
           "file": "videos/locomotion/01_bend_fast_dynamics.mp4",
           "poster": "posters/01_bend_fast_dynamics.jpg",
           "duration": 5.2,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 156,
           "dimensions": [
             1920,
@@ -305,7 +239,7 @@
           "file": "videos/locomotion/07_left_punch_reference.mp4",
           "poster": "posters/07_left_punch_reference.jpg",
           "duration": 13.166666666666666,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 395,
           "dimensions": [
             1920,
@@ -318,7 +252,7 @@
           "file": "videos/locomotion/07_left_punch_dynamics.mp4",
           "poster": "posters/07_left_punch_dynamics.jpg",
           "duration": 13.166666666666666,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 395,
           "dimensions": [
             1920,
@@ -339,7 +273,7 @@
           "file": "videos/locomotion/04_right_punch_reference.mp4",
           "poster": "posters/04_right_punch_reference.jpg",
           "duration": 15.966666666666667,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 479,
           "dimensions": [
             1920,
@@ -351,7 +285,7 @@
           "file": "videos/locomotion/04_right_punch_dynamics.mp4",
           "poster": "posters/04_right_punch_dynamics.jpg",
           "duration": 15.966666666666667,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 479,
           "dimensions": [
             1920,
@@ -371,7 +305,7 @@
           "file": "videos/locomotion/11_left_kick_reference.mp4",
           "poster": "posters/11_left_kick_reference.jpg",
           "duration": 18.4,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 552,
           "dimensions": [
             1920,
@@ -383,7 +317,7 @@
           "file": "videos/locomotion/11_left_kick_dynamics.mp4",
           "poster": "posters/11_left_kick_dynamics.jpg",
           "duration": 18.4,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 552,
           "dimensions": [
             1920,
@@ -403,7 +337,7 @@
           "file": "videos/locomotion/08_right_kick_reference.mp4",
           "poster": "posters/08_right_kick_reference.jpg",
           "duration": 15.866666666666667,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 476,
           "dimensions": [
             1920,
@@ -415,13 +349,79 @@
           "file": "videos/locomotion/08_right_kick_dynamics.mp4",
           "poster": "posters/08_right_kick_dynamics.jpg",
           "duration": 15.866666666666667,
-          "fps": 30.0,
+          "fps": 30,
           "frames": 476,
           "dimensions": [
             1920,
             1080
           ],
           "sha256": "fa33d25fc67ff50c3814d0a96f6d38465703e300fa3cb3d7428b08de93aa8436"
+        }
+      }
+    },
+    {
+      "id": "10_walk",
+      "category": "locomotion",
+      "title": "Walk",
+      "description": "Forward walking across five robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/10_walk_reference.mp4",
+          "poster": "posters/10_walk_reference.jpg",
+          "duration": 31.8,
+          "fps": 30,
+          "frames": 954,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "d14e993fe82db6e540dc3448de6ff61b70a027b5d600fda6dca62a9d82deb9af",
+          "displayPoster": "stills/10_walk_reference.jpg"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/10_walk_dynamics.mp4",
+          "poster": "posters/10_walk_dynamics.jpg",
+          "duration": 31.8,
+          "fps": 30,
+          "frames": 954,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "b46350818aae0850eda73ec64f02418377f345c3a67238c5edc23034742a46d9",
+          "displayPoster": "stills/10_walk_dynamics.jpg"
+        }
+      }
+    },
+    {
+      "id": "09_run",
+      "category": "locomotion",
+      "title": "Run",
+      "description": "Faster forward motion across five robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/09_run_reference.mp4",
+          "poster": "posters/09_run_reference.jpg",
+          "duration": 30.966666666666665,
+          "fps": 30,
+          "frames": 929,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "2a656d839b26a0f70c5aec979cb4852ab8f4c3f8a1800ef4afe8964436917fde"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/09_run_dynamics.mp4",
+          "poster": "posters/09_run_dynamics.jpg",
+          "duration": 30.966666666666665,
+          "fps": 30,
+          "frames": 929,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "5e1e30202290883d37d93b001b5f3c295833743bca37292853c14f5f3121c1ea"
         }
       }
     },
@@ -435,7 +435,7 @@
           "file": "videos/manipulation/01_shared_lift_reference.mp4",
           "poster": "posters/01_shared_lift_reference.jpg",
           "duration": 12.85,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 257,
           "dimensions": [
             1920,
@@ -447,7 +447,7 @@
           "file": "videos/manipulation/01_shared_lift_dynamics.mp4",
           "poster": "posters/01_shared_lift_dynamics.jpg",
           "duration": 12.85,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 257,
           "dimensions": [
             1920,
@@ -467,7 +467,7 @@
           "file": "videos/manipulation/02_shared_transfer_reference.mp4",
           "poster": "posters/02_shared_transfer_reference.jpg",
           "duration": 18.35,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 367,
           "dimensions": [
             1920,
@@ -479,7 +479,7 @@
           "file": "videos/manipulation/02_shared_transfer_dynamics.mp4",
           "poster": "posters/02_shared_transfer_dynamics.jpg",
           "duration": 18.35,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 367,
           "dimensions": [
             1920,
@@ -499,7 +499,7 @@
           "file": "videos/manipulation/03_shared_lower_reference.mp4",
           "poster": "posters/03_shared_lower_reference.jpg",
           "duration": 12.6,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 252,
           "dimensions": [
             1920,
@@ -511,7 +511,7 @@
           "file": "videos/manipulation/03_shared_lower_dynamics.mp4",
           "poster": "posters/03_shared_lower_dynamics.jpg",
           "duration": 12.6,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 252,
           "dimensions": [
             1920,
@@ -525,13 +525,13 @@
       "id": "mobile1",
       "category": "mobile",
       "title": "Pick & carry",
-      "description": "Approach \u2192 grasp \u2192 lift \u2192 carry forward \u2192 lower.",
+      "description": "Approach → grasp → lift → carry forward → lower.",
       "variants": {
         "reference": {
           "file": "videos/mobile/mobile1_reference.mp4",
           "poster": "posters/mobile1_reference.jpg",
           "duration": 39.2,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 784,
           "dimensions": [
             1920,
@@ -543,7 +543,7 @@
           "file": "videos/mobile/mobile1_dynamics.mp4",
           "poster": "posters/mobile1_dynamics.jpg",
           "duration": 39.2,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 784,
           "dimensions": [
             1920,
@@ -557,13 +557,13 @@
       "id": "mobile22",
       "category": "mobile",
       "title": "Carry & turn",
-      "description": "Approach \u2192 grasp \u2192 lift \u2192 turn right \u2192 carry forward \u2192 lower.",
+      "description": "Approach → grasp → lift → turn right → carry forward → lower.",
       "variants": {
         "reference": {
           "file": "videos/mobile/mobile22_reference.mp4",
           "poster": "posters/mobile22_reference.jpg",
           "duration": 39.45,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 789,
           "dimensions": [
             1920,
@@ -576,7 +576,7 @@
           "file": "videos/mobile/mobile22_dynamics.mp4",
           "poster": "posters/mobile22_dynamics.jpg",
           "duration": 39.45,
-          "fps": 20.0,
+          "fps": 20,
           "frames": 789,
           "dimensions": [
             1920,
@@ -588,6 +588,8 @@
       }
     }
   ],
-  "presentation_title": "Robot Motion",
-  "review_presentation": true
+  "presentation_title": "Gesture2Embodiment",
+  "review_presentation": true,
+  "paper_title": "Gesture2Embodiment: Gesture-Driven Motion Across Robot Morphologies",
+  "presentation_layout": "paper-minimal-v2"
 }

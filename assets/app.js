@@ -6,14 +6,12 @@
   const $ = selector => document.querySelector(selector);
   const $$ = selector => [...document.querySelectorAll(selector)];
   const video = $("#demo-video");
-  const hero = $("#hero-video");
-  const state = {category: "locomotion", task: "10_walk", mode: "dynamics"};
-  const highlight = {task: "03_jump", mode: "dynamics"};
+  const firstTask = data.tasks.find(task => task.category === "locomotion");
+  const state = {category: firstTask.category, task: firstTask.id, mode: "dynamics"};
   const loadState = new WeakMap();
-  const formatTime = seconds => `${Math.floor(Math.ceil(seconds) / 60)}:${String(Math.ceil(seconds) % 60).padStart(2, "0")}`;
   const safePlay = element => element.play().catch(error => {
     if (error.name !== "AbortError" && error.name !== "NotAllowedError") {
-      $(element === hero ? "#hero-error" : "#demo-error").hidden = false;
+      $("#demo-error").hidden = false;
     }
   });
 
@@ -26,11 +24,11 @@
     loadState.set(element, requested);
     element.pause();
     element.poster = variant.displayPoster || variant.poster;
-    const overlay = $(element === hero ? "#hero-play" : "#demo-play");
+    const overlay = $("#demo-play");
     overlay.querySelector("img").src = element.poster;
     overlay.hidden = preserveTime || play;
     element.setAttribute("aria-label", `${task.title}, ${mode === "reference" ? "kinematic" : "dynamics"} demonstration`);
-    $(element === hero ? "#hero-error" : "#demo-error").hidden = true;
+    $("#demo-error").hidden = true;
     element.onloadedmetadata = () => {
       if (loadState.get(element) !== requested) return;
       requested.pending = false;
@@ -56,10 +54,7 @@
       button.setAttribute("aria-pressed", String(task.id === state.task));
       const title = document.createElement("span");
       title.textContent = task.title;
-      const arrow = document.createElement("span");
-      arrow.textContent = "↗";
-      arrow.setAttribute("aria-hidden", "true");
-      button.append(title, arrow);
+      button.append(title);
       button.addEventListener("click", () => selectTask(task.id));
       list.append(button);
     }
@@ -76,18 +71,10 @@
 
   function renderDemo({preserveTime = false, play = false, updateUrl = true} = {}) {
     const task = byId.get(state.task);
-    const tasks = currentTasks();
-    const group = groups[state.category];
     $$("[data-category]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.category === state.category)));
     $$("[data-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.mode === state.mode)));
     $$("[data-task]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.task === state.task)));
-    $("#category-label").textContent = group.title.toUpperCase();
     $("#active-task-title").textContent = task.title;
-    $("#task-number").textContent = `${String(tasks.findIndex(t => t.id === task.id) + 1).padStart(2, "0")} / ${String(tasks.length).padStart(2, "0")}`;
-    $("#active-robots").textContent = group.robots.join(" · ");
-    $("#active-duration").textContent = formatTime(task.variants[state.mode].duration);
-    $("#task-description").textContent = task.description;
-    $("#view-note").textContent = state.mode === "reference" ? group.kinematicNote : group.dynamicsNote;
     $("#download-video").href = task.variants[state.mode].file;
     $("#copy-status").textContent = "";
     setVideo(video, task, state.mode, preserveTime, play);
@@ -109,38 +96,12 @@
     if (first) selectTask(first.id);
   }
 
-  function renderHero(preserveTime = false) {
-    const task = byId.get(highlight.task);
-    const playing = !hero.paused;
-    $("#hero-title").textContent = task.title;
-    $("#hero-download").href = task.variants[highlight.mode].file;
-    $$("[data-highlight]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.highlight === highlight.task)));
-    $$("[data-hero-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.heroMode === highlight.mode)));
-    setVideo(hero, task, highlight.mode, preserveTime, playing);
-  }
-
   $$("[data-category]").forEach(button => button.addEventListener("click", () => selectCategory(button.dataset.category)));
-  $$("[data-open-category]").forEach(link => link.addEventListener("click", () => selectCategory(link.dataset.openCategory)));
   $$("[data-mode]").forEach(button => button.addEventListener("click", () => {
     if (button.dataset.mode === state.mode) return;
     state.mode = button.dataset.mode;
     renderDemo({preserveTime: true, play: !video.paused});
   }));
-  $$("[data-highlight]").forEach(button => button.addEventListener("click", () => {
-    if (highlight.task === button.dataset.highlight) return;
-    highlight.task = button.dataset.highlight;
-    renderHero();
-  }));
-  $$("[data-hero-mode]").forEach(button => button.addEventListener("click", () => {
-    if (highlight.mode === button.dataset.heroMode) return;
-    highlight.mode = button.dataset.heroMode;
-    renderHero(true);
-  }));
-  $("#watch-highlight").addEventListener("click", () => {
-    $("#highlight").scrollIntoView({block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
-    safePlay(hero);
-  });
-  $("#hero-play").addEventListener("click", () => safePlay(hero));
   $("#demo-play").addEventListener("click", () => safePlay(video));
   for (const [selector, offset] of [["#previous-task", -1], ["#next-task", 1]]) {
     $(selector).addEventListener("click", () => {
@@ -165,15 +126,8 @@
       $("#copy-status").textContent = `Task link: ${url.href}`;
     }
   });
-  [video, hero].forEach(element => {
-    element.addEventListener("play", () => { $(element === hero ? "#hero-play" : "#demo-play").hidden = true; });
-    element.addEventListener("play", () => [video, hero].filter(other => other !== element).forEach(other => {
-      const pending = loadState.get(other);
-      if (pending) pending.play = false;
-      other.pause();
-    }));
-    element.addEventListener("error", () => { $(element === hero ? "#hero-error" : "#demo-error").hidden = false; });
-  });
+  video.addEventListener("play", () => { $("#demo-play").hidden = true; });
+  video.addEventListener("error", () => { $("#demo-error").hidden = false; });
   function restoreUrl() {
     const params = new URLSearchParams(location.search);
     const task = byId.get(params.get("task"));
