@@ -1,0 +1,593 @@
+{
+  "edition": "English v3",
+  "categories": {
+    "locomotion": {
+      "title": "Locomotion",
+      "robots": [
+        "G1",
+        "A1",
+        "Go2",
+        "Yuna",
+        "B2-Z1"
+      ],
+      "kinematicNote": "Kinematic reference motion.",
+      "dynamicsNote": "Robot-specific simulated controllers."
+    },
+    "manipulation": {
+      "title": "Manipulation",
+      "robots": [
+        "G1",
+        "Yuna",
+        "B2-Z1"
+      ],
+      "kinematicNote": "G1 / Yuna replay phase-aligned capture states.",
+      "dynamicsNote": "Fixed-base object manipulation in simulation."
+    },
+    "mobile": {
+      "title": "Mobile manipulation",
+      "robots": [
+        "G1",
+        "Yuna",
+        "B2-Z1"
+      ],
+      "kinematicNote": "Kinematic mobile task references.",
+      "dynamicsNote": "Assisted dynamics with virtual base stabilization."
+    }
+  },
+  "tasks": [
+    {
+      "id": "10_walk",
+      "category": "locomotion",
+      "title": "Walk",
+      "description": "Forward walking across five robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/10_walk_reference.mp4",
+          "poster": "posters/10_walk_reference.jpg",
+          "duration": 31.8,
+          "fps": 30.0,
+          "frames": 954,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "d14e993fe82db6e540dc3448de6ff61b70a027b5d600fda6dca62a9d82deb9af",
+          "displayPoster": "stills/10_walk_reference.jpg"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/10_walk_dynamics.mp4",
+          "poster": "posters/10_walk_dynamics.jpg",
+          "duration": 31.8,
+          "fps": 30.0,
+          "frames": 954,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "b46350818aae0850eda73ec64f02418377f345c3a67238c5edc23034742a46d9",
+          "displayPoster": "stills/10_walk_dynamics.jpg"
+        }
+      }
+    },
+    {
+      "id": "09_run",
+      "category": "locomotion",
+      "title": "Run",
+      "description": "Faster forward motion across five robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/09_run_reference.mp4",
+          "poster": "posters/09_run_reference.jpg",
+          "duration": 30.966666666666665,
+          "fps": 30.0,
+          "frames": 929,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "2a656d839b26a0f70c5aec979cb4852ab8f4c3f8a1800ef4afe8964436917fde"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/09_run_dynamics.mp4",
+          "poster": "posters/09_run_dynamics.jpg",
+          "duration": 30.966666666666665,
+          "fps": 30.0,
+          "frames": 929,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "5e1e30202290883d37d93b001b5f3c295833743bca37292853c14f5f3121c1ea"
+        }
+      }
+    },
+    {
+      "id": "03_jump",
+      "category": "locomotion",
+      "title": "Jump",
+      "description": "A shared jumping task across different body structures.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/03_jump_reference.mp4",
+          "poster": "posters/03_jump_reference.jpg",
+          "duration": 14.033333333333333,
+          "fps": 30.0,
+          "frames": 421,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "f50d6c2cf67c4cfd767a05df2d1e95a687461d9740fa6f393aa4f851cfd6a39a",
+          "displayPoster": "stills/03_jump_reference.jpg"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/03_jump_dynamics.mp4",
+          "poster": "posters/03_jump_dynamics.jpg",
+          "duration": 14.033333333333333,
+          "fps": 30.0,
+          "frames": 421,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "619cf8e06eff3bda235435f655a94d57e2608f7163cdb954dd15c43dc04cf2ad",
+          "displayPoster": "stills/03_jump_dynamics.jpg"
+        }
+      }
+    },
+    {
+      "id": "12_turn",
+      "category": "locomotion",
+      "title": "Turn left",
+      "description": "Left-turn motion across five robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/12_turn_reference.mp4",
+          "poster": "posters/12_turn_reference.jpg",
+          "duration": 16.3,
+          "fps": 30.0,
+          "frames": 489,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "2732544443ec0fe77944891deb53a8df5802612842ac3905370694dc450ab67b"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/12_turn_dynamics.mp4",
+          "poster": "posters/12_turn_dynamics.jpg",
+          "duration": 16.3,
+          "fps": 30.0,
+          "frames": 489,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "87a21e2942030d3f7b59f7a0681e4481b16369dd92589d0df62530a2ada60fd0"
+        }
+      }
+    },
+    {
+      "id": "13_turn",
+      "category": "locomotion",
+      "title": "Turn right",
+      "description": "Right-turn motion across five robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/13_turn_reference.mp4",
+          "poster": "posters/13_turn_reference.jpg",
+          "duration": 15.466666666666667,
+          "fps": 30.0,
+          "frames": 464,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "98d948a40e28b5bb6d1ea044fc5425f25cf1b193aa277e5a377529b8ddba04cf"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/13_turn_dynamics.mp4",
+          "poster": "posters/13_turn_dynamics.jpg",
+          "duration": 15.466666666666667,
+          "fps": 30.0,
+          "frames": 464,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "5ec1792f19510bec02854862e4fe574a6815555ad06a2e2e502694d4f1840c83"
+        }
+      }
+    },
+    {
+      "id": "05_squat",
+      "category": "locomotion",
+      "title": "Squat",
+      "description": "Lowering the body, then returning to the standing pose.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/05_squat_reference.mp4",
+          "poster": "posters/05_squat_reference.jpg",
+          "duration": 14.133333333333333,
+          "fps": 30.0,
+          "frames": 424,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "7216d6c9f8fff54f655dc592f843bae5b05d9fbdb55ceabfd8117ca2322ab363"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/05_squat_dynamics.mp4",
+          "poster": "posters/05_squat_dynamics.jpg",
+          "duration": 14.133333333333333,
+          "fps": 30.0,
+          "frames": 424,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "863603d8ba88f4609d5a2daec27a9572dd0f4747763192b53e2e6704585daf6f"
+        }
+      }
+    },
+    {
+      "id": "02_bend",
+      "category": "locomotion",
+      "title": "Bow",
+      "description": "A forward bow adapted to different body structures.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/02_bend_reference.mp4",
+          "poster": "posters/02_bend_reference.jpg",
+          "duration": 12.433333333333334,
+          "fps": 30.0,
+          "frames": 373,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "c2c5573eee7698aa65f5e31c57a8a3277428d4cada353f0bfae974f9f7856492"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/02_bend_dynamics.mp4",
+          "poster": "posters/02_bend_dynamics.jpg",
+          "duration": 12.433333333333334,
+          "fps": 30.0,
+          "frames": 373,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "b5389cd48677b893fbf9566c37dae10d41d9156e5539148894432925775b46b9"
+        }
+      }
+    },
+    {
+      "id": "01_bend_fast",
+      "category": "locomotion",
+      "title": "Rise",
+      "description": "Returning to an upright body pose.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/01_bend_fast_reference.mp4",
+          "poster": "posters/01_bend_fast_reference.jpg",
+          "duration": 5.2,
+          "fps": 30.0,
+          "frames": 156,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "b90ef301b05544362ad7e179b9deb20d58ad0322c762efce9396a28b7b1c876f"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/01_bend_fast_dynamics.mp4",
+          "poster": "posters/01_bend_fast_dynamics.jpg",
+          "duration": 5.2,
+          "fps": 30.0,
+          "frames": 156,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "eae7c789368f04273a3719402de3f60f4c26701e02effd6e4e7fd88c904e2e2a"
+        }
+      }
+    },
+    {
+      "id": "07_left_punch",
+      "category": "locomotion",
+      "title": "Left punch",
+      "description": "A left-side strike adapted to each robot embodiment.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/07_left_punch_reference.mp4",
+          "poster": "posters/07_left_punch_reference.jpg",
+          "duration": 13.166666666666666,
+          "fps": 30.0,
+          "frames": 395,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "719852347236c7e9f39a792ef5a9a1049c699f0be75fc537c2fa42eac6022998",
+          "displayPoster": "stills/07_left_punch_reference.jpg"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/07_left_punch_dynamics.mp4",
+          "poster": "posters/07_left_punch_dynamics.jpg",
+          "duration": 13.166666666666666,
+          "fps": 30.0,
+          "frames": 395,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "cea631fa1dd0d64ec3407524ea438ce6342e3be5bb5bd3a83f88da058f577d59",
+          "displayPoster": "stills/07_left_punch_dynamics.jpg"
+        }
+      }
+    },
+    {
+      "id": "04_right_punch",
+      "category": "locomotion",
+      "title": "Right punch",
+      "description": "A right-side strike adapted to each robot embodiment.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/04_right_punch_reference.mp4",
+          "poster": "posters/04_right_punch_reference.jpg",
+          "duration": 15.966666666666667,
+          "fps": 30.0,
+          "frames": 479,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "8a9e44935eeaf8b5f388fcbd2d708a5b2d541c406815d604ddd80d774b3f3997"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/04_right_punch_dynamics.mp4",
+          "poster": "posters/04_right_punch_dynamics.jpg",
+          "duration": 15.966666666666667,
+          "fps": 30.0,
+          "frames": 479,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "86e5ce87b53f13386740d2ef9876e6ed9fdce544dfc4ca0b89dfc258a0358e4f"
+        }
+      }
+    },
+    {
+      "id": "11_left_kick",
+      "category": "locomotion",
+      "title": "Left kick",
+      "description": "A left-side kicking task across robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/11_left_kick_reference.mp4",
+          "poster": "posters/11_left_kick_reference.jpg",
+          "duration": 18.4,
+          "fps": 30.0,
+          "frames": 552,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "410a971622186d5ab1980f1c9ca02a97e1d6248da2f301c99f6f569fc74eaa5f"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/11_left_kick_dynamics.mp4",
+          "poster": "posters/11_left_kick_dynamics.jpg",
+          "duration": 18.4,
+          "fps": 30.0,
+          "frames": 552,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "53d075aae9edfc72bf4d778dd00bb8993e4097ac2349414625894418e35cd25a"
+        }
+      }
+    },
+    {
+      "id": "08_right_kick",
+      "category": "locomotion",
+      "title": "Right kick",
+      "description": "A right-side kicking task across robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/locomotion/08_right_kick_reference.mp4",
+          "poster": "posters/08_right_kick_reference.jpg",
+          "duration": 15.866666666666667,
+          "fps": 30.0,
+          "frames": 476,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "19b61a63b728cd2d66f02485b0aaf16b2dd002c5b93b5562bc31f1222dff0665"
+        },
+        "dynamics": {
+          "file": "videos/locomotion/08_right_kick_dynamics.mp4",
+          "poster": "posters/08_right_kick_dynamics.jpg",
+          "duration": 15.866666666666667,
+          "fps": 30.0,
+          "frames": 476,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "fa33d25fc67ff50c3814d0a96f6d38465703e300fa3cb3d7428b08de93aa8436"
+        }
+      }
+    },
+    {
+      "id": "01_shared_lift",
+      "category": "manipulation",
+      "title": "Lift",
+      "description": "Grasping and lifting an object with three robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/manipulation/01_shared_lift_reference.mp4",
+          "poster": "posters/01_shared_lift_reference.jpg",
+          "duration": 12.85,
+          "fps": 20.0,
+          "frames": 257,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "5c53f7963533445c4786bcd1915668923a16e69d05d4f1a61ec1762a81183508"
+        },
+        "dynamics": {
+          "file": "videos/manipulation/01_shared_lift_dynamics.mp4",
+          "poster": "posters/01_shared_lift_dynamics.jpg",
+          "duration": 12.85,
+          "fps": 20.0,
+          "frames": 257,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "240ee912ba76a97b0c6c4b428f6ef12b9d255b37f288892de9c9ad7ed4fb4e7e"
+        }
+      }
+    },
+    {
+      "id": "02_shared_transfer",
+      "category": "manipulation",
+      "title": "Transfer",
+      "description": "Transferring an object with three robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/manipulation/02_shared_transfer_reference.mp4",
+          "poster": "posters/02_shared_transfer_reference.jpg",
+          "duration": 18.35,
+          "fps": 20.0,
+          "frames": 367,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "6c2f944e77e3b5424a2d1ee4975109812e8fdb44de51bf66b8752664954c0c2e"
+        },
+        "dynamics": {
+          "file": "videos/manipulation/02_shared_transfer_dynamics.mp4",
+          "poster": "posters/02_shared_transfer_dynamics.jpg",
+          "duration": 18.35,
+          "fps": 20.0,
+          "frames": 367,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "70903100c31607d4a99edc02ae5e21b6dcfea4e94dbbb0d3259c1f02e4fe7da1"
+        }
+      }
+    },
+    {
+      "id": "03_shared_lower",
+      "category": "manipulation",
+      "title": "Lower",
+      "description": "Lowering an object with three robot embodiments.",
+      "variants": {
+        "reference": {
+          "file": "videos/manipulation/03_shared_lower_reference.mp4",
+          "poster": "posters/03_shared_lower_reference.jpg",
+          "duration": 12.6,
+          "fps": 20.0,
+          "frames": 252,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "3bd9cb8d8d153b73e43a74bf5b1ac84bc3826155d2199f808b075baca63a9cb6"
+        },
+        "dynamics": {
+          "file": "videos/manipulation/03_shared_lower_dynamics.mp4",
+          "poster": "posters/03_shared_lower_dynamics.jpg",
+          "duration": 12.6,
+          "fps": 20.0,
+          "frames": 252,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "3aa2ae3f960eaa93aad3127bb967241e51a5c8c5d2cd2fa6a2357c780ced077e"
+        }
+      }
+    },
+    {
+      "id": "mobile1",
+      "category": "mobile",
+      "title": "Pick & carry",
+      "description": "Approach \u2192 grasp \u2192 lift \u2192 carry forward \u2192 lower.",
+      "variants": {
+        "reference": {
+          "file": "videos/mobile/mobile1_reference.mp4",
+          "poster": "posters/mobile1_reference.jpg",
+          "duration": 39.2,
+          "fps": 20.0,
+          "frames": 784,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "e96a37c1b75c6a4168b06816257635ce68a3f30f9ab7ea7cd602704864bc3131"
+        },
+        "dynamics": {
+          "file": "videos/mobile/mobile1_dynamics.mp4",
+          "poster": "posters/mobile1_dynamics.jpg",
+          "duration": 39.2,
+          "fps": 20.0,
+          "frames": 784,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "f3962cc740ce771c1585ccceec523c4f366130553325583508bf23b90af69009"
+        }
+      }
+    },
+    {
+      "id": "mobile22",
+      "category": "mobile",
+      "title": "Carry & turn",
+      "description": "Approach \u2192 grasp \u2192 lift \u2192 turn right \u2192 carry forward \u2192 lower.",
+      "variants": {
+        "reference": {
+          "file": "videos/mobile/mobile22_reference.mp4",
+          "poster": "posters/mobile22_reference.jpg",
+          "duration": 39.45,
+          "fps": 20.0,
+          "frames": 789,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "dc58a28034940ef42b33ff234b76b2eaa7498b4b36426a86c05b306b92dc5975",
+          "displayPoster": "stills/mobile22_reference.jpg"
+        },
+        "dynamics": {
+          "file": "videos/mobile/mobile22_dynamics.mp4",
+          "poster": "posters/mobile22_dynamics.jpg",
+          "duration": 39.45,
+          "fps": 20.0,
+          "frames": 789,
+          "dimensions": [
+            1920,
+            1080
+          ],
+          "sha256": "2570383c0fa8094b43b48136756729d6025ca6a75b8066efe92e437cd4eb7d8c",
+          "displayPoster": "stills/mobile22_dynamics.jpg"
+        }
+      }
+    }
+  ],
+  "presentation_title": "Robot Motion",
+  "review_presentation": true
+}
